@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var favouritesModel: FavouritesModel
     var body: some View {
         NavigationView {
             VStack {
@@ -17,8 +18,9 @@ struct ContentView: View {
 
 
                 Spacer()
-
-                NavigationLink(destination: SearchView()) {
+                
+                // This links to the search functionality
+                NavigationLink(destination: TextSearchView()) {
                     Text("Search for nearby food")
                         .foregroundColor(.white)
                         .padding()
@@ -26,19 +28,23 @@ struct ContentView: View {
                         .cornerRadius(8)
                 }
                 .padding()
-//                NavigationLink(destination: FavouritesView()) {
-//                    Text("Favorite Restaurants")
-//                        .foregroundColor(.white)
-//                        .padding()
-//                        .background(Color.green)
-//                        .cornerRadius(8)
-//                }
+
+                
+                // This links to the favourites list 
+                NavigationLink(destination: FavouritesView()) {
+                    Text("Favorite Restaurants")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.green)
+                        .cornerRadius(8)
+                }
+
                 .padding()
 
                 Spacer()
             }
             .navigationTitle("Main Menu")
-//=======
+
                 
                 Spacer()
                 

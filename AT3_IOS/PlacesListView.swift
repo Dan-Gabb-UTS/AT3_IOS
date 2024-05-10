@@ -2,13 +2,15 @@
 //  PlacesListView.swift
 //  AT3_IOS
 //
-//  Created by Aiden Hemaridis-smith on 9/5/2024.
+//  Created by Aiden Hemaridis-smith on 10/5/2024.
 //
-
 import SwiftUI
 
 struct PlacesListView: View {
-    @State var places: [Place] = []  // Changed to [Place]
+
+    var places: [Place]
+
+    @State var places: [Place] = []
     var searchTerm: String
     @State private var selectedPlace: Place? = nil
     
@@ -36,19 +38,13 @@ struct PlacesListView: View {
         }
     }
 
-    func loadPlaces() {
-        PlaceSearchManager().searchPlaces(searchText: searchTerm) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let places):
-                    self.places = places  
-                case .failure(let error):
-                    print("Error fetching places: \(error)")
-                }
+
+    var body: some View {
+        // Takes you to the detailed page with all the information and photos
+        List(places, id: \.id) { place in
+            NavigationLink(destination: PlaceDetailView(place: place)) {
+                Text(place.name)
             }
         }
     }
-}
-#Preview {
-    PlacesListView(places: [], searchTerm: "")
 }
