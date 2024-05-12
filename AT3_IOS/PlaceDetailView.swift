@@ -29,21 +29,39 @@ struct PlaceDetailView: View {
                     .font(.title2)
 
                 if let phone = place.phoneNumber {
-                    Text("Phone: \(phone)")
+                    HStack{
+                        Text("Phone:")
+                            .bold()
+                            .foregroundStyle(.green)
+                        Text("\(phone)")
+                    }
                 }
 
                 if let hours = place.openingHours?.joined(separator: "\n") {
-                    Text("Opening Hours:\n\(hours)")
+                    
+                        Text("Opening Hours:")
+                            .bold()
+                            .foregroundStyle(.green)
+                        Text("\(hours)")
+                    
                 }
 
                 if let website = place.website {
                     Link("Visit Website", destination: website)
                 }
-                
-                Text("Google Rating: \(place.rating, specifier: "%.1f")/5")
-                
-                Text("App Name Reviews: \(place.appRating, specifier: "%.1f")/5")
-                
+                HStack{
+                    
+                    Text("Google Rating:")
+                        .bold()
+                        .foregroundStyle(.green)
+                    Text("\(place.rating, specifier: "%.1f")/5")
+                    
+                    Text("App Name Reviews:")
+                        .bold()
+                        .foregroundStyle(.green)
+                    
+                    Text(" \(place.appRating, specifier: "%.1f")/5")
+                }
                 // This shows the reviews that have been left in the app and they're available int this view
                 ForEach(place.reviews) { review in
                     VStack(alignment: .leading) {
@@ -91,3 +109,4 @@ struct PlaceDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 }
+

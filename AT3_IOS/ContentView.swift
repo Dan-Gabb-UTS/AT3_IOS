@@ -14,6 +14,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
+// creates a 'banner' at the top of the screen contain the apps logo and the current view page
                 HStack {
                     image
                         .resizable()

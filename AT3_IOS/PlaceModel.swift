@@ -10,7 +10,7 @@ import CoreLocation
 import GooglePlaces
 
 struct Review: Identifiable, Codable {
-    let id: UUID = UUID()
+    var id: UUID = UUID()
     let reviewerName: String
     let rating: Int
     let comment: String

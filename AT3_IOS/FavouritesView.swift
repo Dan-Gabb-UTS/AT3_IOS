@@ -35,3 +35,7 @@ struct FavouritesView: View {
         }
     }
 }
+
+#Preview {
+    FavouritesView().environmentObject(FavouritesModel())
+}
