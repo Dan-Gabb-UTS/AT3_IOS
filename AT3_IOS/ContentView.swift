@@ -8,58 +8,46 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var favouritesModel: FavouritesModel
     var body: some View {
         NavigationView {
-            
             VStack {
                 Text("App Name Goes Here")
                     .font(.largeTitle)
                     .padding()
-                
+
+
                 Spacer()
                 
-                NavigationLink(
-                    destination: SearchView(),
-                    label: {
-                        HStack{
-                            Image(systemName: "magnifyingglass")
-                                .foregroundColor(.white)
-                            
-                            Text("Search Near By Places")
-                            
-                                .foregroundColor(.white)
-                        }
+                // This links to the search functionality
+                NavigationLink(destination: TextSearchView()) {
+                    Text("Search for nearby food")
+                        .foregroundColor(.white)
                         .padding()
+                        .background(Color.blue)
+                        .cornerRadius(8)
+                }
+                .padding()
 
-                            .background(Color.green)
-                            .cornerRadius(8)
-                            
-                    })
-                NavigationLink(
-                    destination: FavouritesView(favouritesModel: FavouritesModel()),
-                    label: {
-                        HStack{
-                            Image(systemName: "suit.heart.fill")
-                                .foregroundColor(.white)
-                            
-                            Text("Favourite Places")
-                            
-                                .foregroundColor(.white)
-                        }
+                
+                // This links to the favourites list
+                NavigationLink(destination: FavouritesView()) {
+                    Text("Favorite Restaurants")
+                        .foregroundColor(.white)
                         .padding()
+                        .background(Color.green)
+                        .cornerRadius(8)
+                }
 
-                            .background(Color.green)
-                            .cornerRadius(8)
-                            
-                    })
-                
-               
-                
+                .padding()
+
                 Spacer()
             }
+            .navigationTitle("Main Menu")
+                Spacer()
+          }
         }
     }
-}
 
 #Preview {
     ContentView()
