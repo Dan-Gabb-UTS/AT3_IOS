@@ -20,13 +20,7 @@ struct ContentView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                        // .padding(leading(50))
-                    
-                    
-                    
-                    Text("Main Menu")
-                        .bold()
-                        .font(.title)
-                        .padding(EdgeInsets())
+
                 }
                 .background(Color.green)
 

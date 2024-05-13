@@ -5,7 +5,7 @@
 //  Created by Aiden Hemaridis-smith on 10/5/2024.
 //
 import SwiftUI
-// Review form 
+// Review form
 struct ReviewFormView: View {
     @Binding var place: Place
     var onDismiss: () -> Void
@@ -44,3 +44,4 @@ struct ReviewFormView: View {
         })
     }
 }
+

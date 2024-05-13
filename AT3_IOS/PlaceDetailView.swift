@@ -56,7 +56,7 @@ struct PlaceDetailView: View {
                         .foregroundStyle(.green)
                     Text("\(place.rating, specifier: "%.1f")/5")
                     
-                    Text("App Name Reviews:")
+                    Text("Menu Mapper Reviews:")
                         .bold()
                         .foregroundStyle(.green)
                     
@@ -71,23 +71,24 @@ struct PlaceDetailView: View {
                     }
                     .padding()
                 }
-                
-                Button("Add Review") {
-                    showingReviewForm = true
-                }
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-
-                Button(action: {
-                    favouritesModel.addFavourite(place: place)
-                }) {
-                    Text("Add to Favourites")
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
+                HStack {
+                    Button("Add Review") {
+                        showingReviewForm = true
+                    }
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    
+                    Button(action: {
+                        favouritesModel.addFavourite(place: place)
+                    }) {
+                        Text("Add to Favourites")
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
                 }
                 .padding()
 

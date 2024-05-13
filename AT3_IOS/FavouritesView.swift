@@ -27,15 +27,11 @@ struct FavouritesView: View {
         }
     }
 
-    // Theres a button in the top right corner so you can remove favourites directly from the view 
+    // Theres a button in the top right corner so you can remove favourites directly from the view
     private func deleteItems(at offsets: IndexSet) {
         offsets.forEach { index in
             let restaurantID = favouritesModel.favouriteRestaurants[index].id
             favouritesModel.removeFavourite(placeId: restaurantID)
         }
     }
-}
-
-#Preview {
-    FavouritesView().environmentObject(FavouritesModel())
 }
